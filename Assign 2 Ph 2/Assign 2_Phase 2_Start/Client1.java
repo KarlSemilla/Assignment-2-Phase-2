@@ -1,4 +1,3 @@
-//test edit
 import java.util.Scanner;
 import java.io.*;
 
@@ -15,7 +14,7 @@ import java.io.*;
  *                e.g. not "sometime bombs when reading file" bit "bombs when reading if > 20 lines")
  *
  * DELETE extraneous info from this comment
-*/
+ */
 public class Client1 
 {
     /**
@@ -24,12 +23,29 @@ public class Client1
     public static void main(String args[]) throws IOException
     {
         // complete the main by adding the necessary variables and statements
-        
-        
+        Scanner in = new Scanner(System.in);
+        int choice = 0;
+        int count = 0;
+        String num = "";
+        Warehouse ware = new Warehouse();
+        ware.loadData();
+
+        while (choice != 9)
+        {
+            invMenu();
+            System.out.println("Please enter your coice or 9 to exit");
+            choice = in.nextInt();
+            switch(choice) 
+            {
+                case '1':
+                System.out.println("Enter item number");
+                num = in.next();
+                ware.addItem(num);
+            }
+        }
         System.out.println ("Thank you for using the Inventory Processing System");
-        
     }
-  
+
     /**
      *  The Main menu
      */
@@ -49,6 +65,7 @@ public class Client1
      */
     public static void invMenu()
     {
+
         System.out.println("\nINVENTORY PROCESSING MENU:");
         System.out.println("1) Adding an Item to the Warehoue");
         System.out.println("2) Removing an Item from the Warehouse");

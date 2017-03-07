@@ -204,8 +204,6 @@ public class Warehouse
         {
             System.out.println("The item was not found. The item will be created.");
             scanInfo();
-            
-            
         }
 
     }
