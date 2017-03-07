@@ -223,6 +223,7 @@ public class Warehouse
         int reorder = scan.nextInt();
         System.out.println("Enter the price of ordering the item: ");
         int eoq = scan.nextInt();
+        inv.add(new Item(itemNum,itemName,stock,price,reorder,eoq));
         return(new Item(itemNum,itemName,stock,price,reorder,eoq));
     }
     

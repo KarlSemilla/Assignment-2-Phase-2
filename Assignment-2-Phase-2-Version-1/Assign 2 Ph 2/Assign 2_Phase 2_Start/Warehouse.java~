@@ -223,7 +223,8 @@ public class Warehouse
         int reorder = scan.nextInt();
         System.out.println("Enter the price of ordering the item: ");
         int eoq = scan.nextInt();
-        return(new Item(itemNum,itemName,stock,price,reorder,eoq));
+        //inv.add(itemNum,itemName,stock,price,reorder,eoq);
+        return(inv.add(new Item(itemNum,itemName,stock,price,reorder,eoq)));
     }
     
     public void removeItem(String num)
@@ -235,7 +236,7 @@ public class Warehouse
             inv.remove(check);
         }
         else
-            System.out.println("Item could not be found. Nothing will be removed.");
+            System.out.println("Item could not be found.");
     }
 
     // End of Day processing
