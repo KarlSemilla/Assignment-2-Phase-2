@@ -37,10 +37,11 @@ public class Client1
             choice = in.nextInt();
             switch(choice) 
             {
-                case '1':
+                case 1:
                 System.out.println("Enter item number");
                 num = in.next();
                 ware.addItem(num);
+                break;
             }
         }
         System.out.println ("Thank you for using the Inventory Processing System");
