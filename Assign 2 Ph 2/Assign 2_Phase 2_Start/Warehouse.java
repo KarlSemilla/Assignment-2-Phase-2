@@ -203,7 +203,7 @@ public class Warehouse
         else
         {
             System.out.println("The item was not found. The item will be created.");
-            System.out.println("");
+            scanInfo();
             
             
         }
@@ -213,7 +213,19 @@ public class Warehouse
     public Item scanInfo()
     {
         Scanner scan = new Scanner(System.in);
-        return(new Item(,,,,,,,))
+        System.out.println("Enter item number: ");
+        String itemNum = scan.nextLine();
+        System.out.println("Enter item name: ");
+        String itemName = scan.nextLine();
+        System.out.println("Enter amount in stock: ");
+        int stock = scan.nextInt();
+        System.out.println("Enter unit price of the item: ");
+        double price = scan.nextDouble();
+        System.out.println("Enter the reorder amount: ");
+        int reorder = scan.nextInt();
+        System.out.println("Enter the price of ordering the item: ");
+        int eoq = scan.nextInt();
+        return(new Item(itemNum,itemName,stock,price,reorder,eoq));
     }
 
     // End of Day processing
