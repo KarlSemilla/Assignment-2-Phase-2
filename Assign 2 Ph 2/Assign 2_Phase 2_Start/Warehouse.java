@@ -20,7 +20,7 @@ public class Warehouse
     // the method below loads the data from a text file
     public int loadData()throws IOException
     {
-        Scanner fileInput = new Scanner(new File("Inventory.txt"));
+        Scanner fileInput = new Scanner(new File("NewInventory.txt"));
         
         while(fileInput.hasNextLine()){
             inv.add(new Item(fileInput.next(), 
@@ -315,48 +315,51 @@ public class Warehouse
         int i = 0;
         while(i < inv.size()){
             write.print(inv.get(i));
-            write.println();
+            if(i <= inv.size()){
+                write.println();
+            }
             i++;
         }
+        System.out.println("File has finished writing!");
         write.close();
     }
     // End of Day processing
-    //    public void endOfDay()
-    //    {
-    //        printInvReport();
-    //        processAuto();
-    //    }
-    //    
-    //    private void printInvReport()
-    //    {
-    //        System.out.printf("%-8s %-10s %-10s %-10s %-10s %-9s %-11s \n", "Item", "Item", " ",
-    //                             " ", " ", "Unit", "Item");
-    //                            
-    //         System.out.printf("%-8s %-10s %-10s %-10s %-10s %-9s %-11s \n\n","Number", "Name", "On Hand",
-    //                            "Committed", "On Order", "Price", "Value");
-    //         
-    //         for (int i = 0; i <numItems; i++)
-    //          {
-    //             System.out.printf ("%-8s %-10s %-10d %-10d %-10d $ %-7.2f $ %-10.2f \n", 
-    //                     stock[i].getItemNo(), stock[i].getItemName(), stock[i].getOnHand(), 
-    //                     stock[i].getCommitted(), stock[i].getOnOrder(), stock[i].getUnitPrice(),
-    //                     stock[i].getUnitPrice() * (stock[i].getOnHand() + stock[i].getCommitted()));           
-    //          }   
-    //    }
-    //    
-    //    private void processAuto()
-    //    {
-    //        boolean autoOrd;
-    //        for (int i = 0; i <numItems; i++)
-    //          {
-    //              autoOrd = stock[i].autoOrder(); 
-    //              if (autoOrd)
-    //              {
-    //                  System.out.println ("Ordered " + stock[i].getEconOrderQty() + " of item " + stock[i].getItemNo() + "  " + stock[i].getItemName());
-    //                  System.out.println ("on order amount is " + stock[i].getOnOrder());
-    //              }
-    //              
-    //          }   
-    //    }
-    //    
+   public void endOfDay()
+   {
+       printInvReport();
+       processAuto();
+   }
+   
+   private void printInvReport()
+   {
+       System.out.printf("%-8s %-10s %-10s %-10s %-10s %-9s %-11s \n", "Item", "Item", " ",
+                            " ", " ", "Unit", "Item");
+                           
+        System.out.printf("%-8s %-10s %-10s %-10s %-10s %-9s %-11s \n\n","Number", "Name", "On Hand",
+                           "Committed", "On Order", "Price", "Value");
+        
+        for (int i = 0; i < inv.size(); i++)
+         {
+            System.out.printf ("%-8s %-10s %-10d %-10d %-10d $ %-7.2f $ %-10.2f \n", 
+                    inv.get(i).getItemNo(), inv.get(i).getItemName(), inv.get(i).getOnHand(), 
+                    inv.get(i).getCommitted(), inv.get(i).getOnOrder(), inv.get(i).getUnitPrice(),
+                    inv.get(i).getUnitPrice() * inv.get(i).getOnHand() + inv.get(i).getCommitted());           
+         }   
+   }
+   
+   private void processAuto()
+   {
+       boolean autoOrd;
+       for (int i = 0; i < inv.size(); i++)
+         {
+             autoOrd = inv.get(i).autoOrder(); 
+             if (autoOrd)
+             {
+                 System.out.println ("Ordered " + inv.get(i).getEconOrderQty() + " of item " + inv.get(i).getItemNo() + "  " + inv.get(i).getItemName());
+                 System.out.println ("on order amount is " + inv.get(i).getOnOrder());
+             }
+             
+         }   
+   }
+   
 }
