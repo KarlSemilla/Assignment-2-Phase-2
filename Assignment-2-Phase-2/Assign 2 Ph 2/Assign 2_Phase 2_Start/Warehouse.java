@@ -226,7 +226,24 @@ public class Warehouse
         inv.add(new Item(itemNum,itemName,stock,price,reorder,eoq));
         return(new Item(itemNum,itemName,stock,price,reorder,eoq));
     }
+    
+    public void removeItem(String num)
+    {
+        Item check = null;
 
+        check = validateNum(num);
+        if(check != null){
+            inv.remove(check);
+        }
+        else
+            System.out.println("Item could not be found.");
+    }
+
+    public void ChangeItemPrice(String num)
+    {
+        Item check = null;
+        check = validateNum(num);
+    }
     // End of Day processing
     //    public void endOfDay()
     //    {
