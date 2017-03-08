@@ -221,8 +221,9 @@ public class Warehouse
         double price = scan.nextDouble();
         System.out.println("Enter the reorder amount: ");
         int reorder = scan.nextInt();
-        System.out.println("Enter the price of ordering the item: ");
+        System.out.println("Enter the econ order quantity: ");
         int eoq = scan.nextInt();
+        inv.add(new Item(itemNum,itemName,stock,price,reorder,eoq));
         return(new Item(itemNum,itemName,stock,price,reorder,eoq));
     }
 
