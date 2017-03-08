@@ -14,14 +14,14 @@ public class Warehouse
     // the constructor
     public Warehouse()
     {
-        
+
     }
 
     // the method below loads the data from a text file
     public int loadData()throws IOException
     {
         Scanner fileInput = new Scanner(new File("Inventory.txt"));
-        
+
         while(fileInput.hasNextLine()){
             inv.add(new Item(fileInput.next(), 
                     fileInput.next(), 
@@ -178,7 +178,7 @@ public class Warehouse
         else
             System.out.println ("The item number " + num + " does not exist."); 
     }
-    
+
     //the method below allows the user to add a new item to the invetory
     public void addItem(String num)
     {
@@ -246,7 +246,7 @@ public class Warehouse
         else
             System.out.println("Item is not valid.");
     }
-    
+
     public int ItemPosition(String num)
     {
         int i = 0;
@@ -267,21 +267,44 @@ public class Warehouse
         Scanner fileInput = new Scanner(new File("transaction.txt"));
         Item check = null;
         String num = "";
-        String type = "";
-        String amount = "";
-        
+        int type = 0;
+        int amount = 0;
+
         while(fileInput.hasNext()){
             num = fileInput.nextLine();
-            type = fileInput.nextLine();
-            amount = fileInput.nextLine();
+            type = fileInput.nextInt();
+            amount = fileInput.nextInt();
             check = validateNum(num);
             if (check != null){
-                
+                System.out.println("Item is valid. Processing will now occur.");
+                ProcessSelect(num, type, amount);
             }
-        }
-        
+            else
+                System.out.println("" + num + " is not a valid item.");
+        } 
     }
-    
+
+    public void ProcessSelect(String num, int type, int amount)
+    {
+        if(type == 2){
+            order(num,amount);
+        }
+        else if(type == 3){
+            receive(num,amount);
+        }
+        else if(type == 4){
+            returns(num, amount);
+        }
+        else if(type == 5){
+            shipCust(num, amount);
+        }
+        else if(type == 6){
+            orderCust(num, amount);
+        }
+        else if(type == 7){
+            returnCust(num, amount);
+        }
+    }
     // End of Day processing
     //    public void endOfDay()
     //    {
