@@ -8,6 +8,4 @@ comment1.text=\r\n\ \ The\ Main\ menu\r\n
 comment2.params=
 comment2.target=void\ invMenu()
 comment2.text=\r\n\ \ The\ Inventory\ Maintenance\ menu\r\n
-comment3.params=
-comment3.target=void\ invMenuCall()
-numComments=4
+numComments=3
