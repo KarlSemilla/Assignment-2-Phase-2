@@ -34,7 +34,7 @@ public class Client1
         while (choice != 5)
         {
             mainMenu();
-            System.out.println("Please enter your coice or 5 to exit");
+            System.out.println("Please enter your choice or 5 to exit");
             choice = in.nextInt();
             switch(choice) 
             {
@@ -49,7 +49,7 @@ public class Client1
                 while (invChoice != 4)
                 {
                     invMenu();
-                    System.out.println("Please enter your coice or 4 to exit");
+                    System.out.println("Please enter your choice or 4 to exit");
                     invChoice = in.nextInt();
                     switch (invChoice)
                     {
