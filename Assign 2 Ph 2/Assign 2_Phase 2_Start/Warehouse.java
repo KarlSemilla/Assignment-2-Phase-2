@@ -262,6 +262,23 @@ public class Warehouse
         return y;
     }
 
+    public void TransacFile() throws IOException
+    {
+        Scanner fileInput = new Scanner(new File("transaction.txt"));
+        Item check = null;
+        String num = "";
+        String type = "";
+        String amount = "";
+        
+        while(fileInput.hasNext()){
+            num = fileInput.nextLine();
+            type = fileInput.nextLine();
+            amount = fileInput.nextLine();
+            if (num){}
+        }
+        
+    }
+    
     // End of Day processing
     //    public void endOfDay()
     //    {
