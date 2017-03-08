@@ -78,7 +78,7 @@ public class Client1
                 break;
 
                 case 3:
-
+                ware.TransacFile();
                 break;
 
                 case 4:
