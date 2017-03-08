@@ -25,6 +25,7 @@ public class Client1
         // complete the main by adding the necessary variables and statements
         Scanner in = new Scanner(System.in);
         int choice = 0;
+        int invChoice = 0;
         int count = 0;
         String num = "";
         Warehouse ware = new Warehouse();
@@ -42,19 +43,17 @@ public class Client1
                 num = in.next();
                 ware.invQuery(num);
                 break;
-                
+
                 case 2:
-                System.out.println("Enter item number");
-                num = in.next();
-                ware.addItem(num);
+
                 break;
-                
+
                 case 3:
-                
+
                 break;
-                
+
                 case 4:
-                
+
                 break;
             }
         }
@@ -88,4 +87,15 @@ public class Client1
         System.out.println();
         System.out.println("4) Exit");
     } 
+
+    public void invMenuCall()
+    {
+        while (invChoice)
+        {
+
+        }
+        System.out.println("Enter item number");
+        num = in.next();
+        ware.addItem(num);
+    }
 }
