@@ -30,10 +30,10 @@ public class Client1
         Warehouse ware = new Warehouse();
         ware.loadData();
 
-        while (choice != 9)
+        while (choice != 5)
         {
             invMenu();
-            System.out.println("Please enter your coice or 9 to exit");
+            System.out.println("Please enter your coice or 5 to exit");
             choice = in.nextInt();
             switch(choice) 
             {
@@ -41,6 +41,18 @@ public class Client1
                 System.out.println("Enter item number");
                 num = in.next();
                 ware.addItem(num);
+                break;
+                
+                case 2:
+                
+                break;
+                
+                case 3:
+                
+                break;
+                
+                case 4:
+                
                 break;
             }
         }
