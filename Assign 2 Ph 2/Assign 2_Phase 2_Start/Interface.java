@@ -9,20 +9,20 @@ import java.io.*;
 
 public class Interface 
 {
-   
+
     public static void main(String args[]) throws IOException
     {
         // define necessary variables here
         int choice;
-        
+
         Scanner kb = new Scanner(System.in);
         Warehouse inStock = new Warehouse();
         String number = "";
         int amount = 0;
-                
+
         inStock.loadData();
         choice = 0;
-        
+
         while (choice != 9)
         {
             showMenu();
@@ -30,60 +30,57 @@ public class Interface
             choice = kb.nextInt();
             Item valid;
             kb.nextLine();
-            
+
             if (choice > 0 && choice < 8)
+            {
+                System.out.println ("Please enter the inventory number");
+                number = kb.nextLine();
+                valid = inStock.validateNum(number);
+                if (choice != 1 && valid != null)
                 {
-                    System.out.println ("Please enter the inventory number");
-                    number = kb.nextLine();
-                    valid = inStock.validateNum(number);
-                    if (choice != 1 && valid != null)
-                    {
-                       System.out.println ("Please enter the number of items of " + number);
-                       amount = kb.nextInt(); 
-                       kb.nextLine();
-                    }
+                    System.out.println ("Please enter the number of items of " + number);
+                    amount = kb.nextInt(); 
+                    kb.nextLine();
                 }
-                
+            }
+
             switch (choice)
             {
                 case 1:
-                    inStock.invQuery(number);
-                    break;
+                inStock.invQuery(number);
+                break;
                 case 2:
-                    inStock.order(number, amount);
-                    break;
+                inStock.order(number, amount);
+                break;
                 case 3:
-                    inStock.receive(number, amount);
-                    break;
+                inStock.receive(number, amount);
+                break;
                 case 4:
-                    inStock.returns(number, amount);
-                    break;
+                inStock.returns(number, amount);
+                break;
                 case 5:
-                    inStock.shipCust(number, amount);
-                    break;
+                inStock.shipCust(number, amount);
+                break;
                 case 6:
-                    inStock.orderCust(number, amount);
-                    break;
+                inStock.orderCust(number, amount);
+                break;
                 case 7:
-                    inStock.returnCust(number, amount);
-                    break;
+                inStock.returnCust(number, amount);
+                break;
                 case 8: 
-                    //inStock.endOfDay();
-                    break;
+                //inStock.endOfDay();
+                break;
                 case 9:
-                     System.out.println ("Thank you for using the Inventory Processing System");
-                     break;
+                System.out.println ("Thank you for using the Inventory Processing System");
+                break;
                 default:
-                    System.out.println ("That is not a valid choice.  Please re-enter");
+                System.out.println ("That is not a valid choice.  Please re-enter");
             }
-        
+
         }
-       
 
        
-        
     }
-  
     /**
      *  The Inventory processing menu
      */
@@ -102,5 +99,4 @@ public class Interface
         System.out.println("9) Exit");
     }
 
-   
 }
