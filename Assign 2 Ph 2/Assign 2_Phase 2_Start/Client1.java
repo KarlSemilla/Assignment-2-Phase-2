@@ -32,7 +32,7 @@ public class Client1
 
         while (choice != 5)
         {
-            invMenu();
+            mainMenu();
             System.out.println("Please enter your coice or 5 to exit");
             choice = in.nextInt();
             switch(choice) 
@@ -40,11 +40,13 @@ public class Client1
                 case 1:
                 System.out.println("Enter item number");
                 num = in.next();
-                ware.addItem(num);
+                ware.invQuery(num);
                 break;
                 
                 case 2:
-                
+                System.out.println("Enter item number");
+                num = in.next();
+                ware.addItem(num);
                 break;
                 
                 case 3:
