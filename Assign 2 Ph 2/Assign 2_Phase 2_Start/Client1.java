@@ -119,38 +119,4 @@ public class Client1
         System.out.println();
         System.out.println("4) Exit");
     } 
-
-    //     public static void invMenuCall()
-    //     {
-    //         Warehouse ware = new Warehouse();
-    //         int invChoice = 0;
-    //         Scanner in = new Scanner(System.in);
-    //         String num = "";
-    // 
-    //         while (invChoice != 4)
-    //         {
-    //             invMenu();
-    //             System.out.println("Please enter your coice or 4 to exit");
-    //             invChoice = in.nextInt();
-    //             switch (invChoice)
-    //             {
-    //                 case 1:
-    //                 System.out.println("Enter item number");
-    //                 num = in.next();
-    //                 ware.addItem(num);
-    //                 break;
-    // 
-    //                 case 2:
-    // 
-    //                 break;
-    // 
-    //                 case 3:
-    // 
-    //                 break;
-    // 
-    //                 default:
-    //                 System.out.println("Enter a valid choice");
-    //             }
-    //         }
-    //     }
 }

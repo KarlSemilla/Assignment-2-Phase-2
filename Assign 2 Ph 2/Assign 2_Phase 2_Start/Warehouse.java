@@ -20,8 +20,8 @@ public class Warehouse
     // the method below loads the data from a text file
     public int loadData()throws IOException
     {
-        Scanner fileInput = new Scanner(new File("NewInventory.txt"));
-        
+        Scanner fileInput = new Scanner(new File("Inventory.txt"));
+
         while(fileInput.hasNextLine()){
             inv.add(new Item(fileInput.next(), 
                     fileInput.next(), 
@@ -61,13 +61,16 @@ public class Warehouse
     {
         Item foundItem = null;
         String text;
-
         foundItem = validateNum(num);
-        if (foundItem != null)
-            System.out.println (foundItem.printDetails());
-        else
-            System.out.println ("The item number " + num + " does not exist.");
 
+        if (foundItem != null)
+        {
+            System.out.println (foundItem.printDetails());
+        }
+        else
+        {
+            System.out.println ("The item number " + num + " does not exist.");
+        }
     }
 
     // ordering items from supplier
@@ -84,8 +87,9 @@ public class Warehouse
             System.out.println ("on order amount is " + foundItem.getOnOrder());
         }
         else 
+        {
             System.out.println ("The item number " + num + " does not exist.");     
-
+        }
     }
 
     // Receiving shipment from supplier
@@ -93,8 +97,8 @@ public class Warehouse
     {
         Item foundItem = null;
         int recAmt;
-
         foundItem = validateNum (num);
+
         if (foundItem != null)
         {
             recAmt = foundItem.receiveItems(amt);
@@ -103,7 +107,9 @@ public class Warehouse
             System.out.println ("on hand amount is " + foundItem.getOnHand());
         }
         else
-            System.out.println ("The item number " + num + " does not exist.");            
+        {
+            System.out.println ("The item number " + num + " does not exist.");   
+        }
     }
 
     // returning items to supplier
@@ -111,8 +117,8 @@ public class Warehouse
     {
         Item foundItem = null;
         int retAmt;
-
         foundItem = validateNum (num);
+
         if (foundItem != null)
         {
             retAmt = foundItem.returnItems(amt);
@@ -120,8 +126,9 @@ public class Warehouse
             System.out.println ("on hand amount is " + foundItem.getOnHand());
         }
         else
+        {
             System.out.println ("The item number " + num + " does not exist."); 
-
+        }
     }
 
     // shipping items to customers
@@ -129,8 +136,8 @@ public class Warehouse
     {
         Item foundItem = null;
         int shipAmt;
-
         foundItem = validateNum (num);
+
         if (foundItem != null)
         {
             shipAmt = foundItem.shipItems(amt);
@@ -139,8 +146,9 @@ public class Warehouse
             System.out.println ("on hand amount is " + foundItem.getOnHand());
         }
         else
+        {
             System.out.println ("The item number " + num + " does not exist."); 
-
+        }
     }
 
     // processing customer orders
@@ -148,8 +156,8 @@ public class Warehouse
     {
         Item foundItem = null;
         int ordCustAmt;
-
         foundItem = validateNum (num);
+
         if (foundItem != null)
         {
             ordCustAmt = foundItem.custOrder(amt); 
@@ -158,8 +166,9 @@ public class Warehouse
             System.out.println ("on hand amount is " + foundItem.getOnHand());  
         }
         else
+        {
             System.out.println ("The item number " + num + " does not exist."); 
-
+        }
     }
 
     // processing customer returns
@@ -167,8 +176,8 @@ public class Warehouse
     {
         Item foundItem = null;
         int retCustAmt;
-
         foundItem = validateNum (num);
+
         if (foundItem != null)
         {
             retCustAmt = foundItem.custReturn(amt);
@@ -176,7 +185,9 @@ public class Warehouse
             System.out.println ("on hand amount is " + foundItem.getOnHand());
         }
         else
+        {
             System.out.println ("The item number " + num + " does not exist."); 
+        }
     }
 
     //the method below allows the user to add a new item to the invetory
@@ -184,17 +195,17 @@ public class Warehouse
     {
         int i = 0;
         Item check = null;
-
         check = validateNum(num);
 
         if(check != null)
-            System.out.println("The item cannot be created. Item already exists.");            
+        {
+            System.out.println("The item cannot be created. Item already exists."); 
+        }
         else
         {
             System.out.println("The item was not found. The item will be created.");
             scanInfo();
         }
-
     }
 
     //the method below is utilised by the method above to request and set values for a new item
@@ -230,6 +241,7 @@ public class Warehouse
             System.out.println("Item could not be found.");
     }
 
+    //the method below allows the user to change the price of an item in the ArrayList
     public void ChangeItemPrice(String num)
     {
         Scanner scan = new Scanner(System.in);
@@ -237,20 +249,26 @@ public class Warehouse
         double newPrice = 0.0;
         int ref = 0;
         check = validateNum(num);
-        if(check != null){
+
+        if(check != null)
+        {
             System.out.println("Number is valid. Please enter the amount to set " + num + "'s  price to: ");
             newPrice = scan.nextDouble();
             ref = ItemPosition(num);
             inv.set(ref,check).setUnitPrice(newPrice);
         }
         else
+        {
             System.out.println("Item is not valid.");
+        }
     }
 
+    //the method below return the position on an item in the ArrayList
     public int ItemPosition(String num)
     {
         int i = 0;
         int y = 0;
+
         while(i < inv.size())
         {
             if (inv.get(i).getItemNo().equals(num))
@@ -259,9 +277,11 @@ public class Warehouse
             }  
             i++;
         }
+
         return y;
     }
 
+    //the method below reads a text file with transactions
     public void TransacFile() throws IOException
     {
         Scanner fileInput = new Scanner(new File("transaction.txt"));
@@ -270,96 +290,116 @@ public class Warehouse
         int type = 0;
         int amount = 0;
 
-        while(fileInput.hasNext()){
+        while(fileInput.hasNext())
+        {
             num = fileInput.next();
             type = fileInput.nextInt();
             amount = fileInput.nextInt();
             check = validateNum(num);
-            if (check != null){
+
+            if (check != null)
+            {
                 System.out.println("Item is valid. Processing will now occur.");
                 fileInput.close();
                 ProcessSelect(num, type, amount);
             }
             else
+            {
                 System.out.println("" + num + " is not a valid item.");
+            }
         } 
+
         fileInput.close();
     }
 
+    //based on the method above, the method below processes the transaction from the text file accordingly
     public void ProcessSelect(String num, int type, int amount)
     {
-        if(type == 2){
+        if(type == 2)
+        {
             order(num,amount);
         }
-        else if(type == 3){
+        else if(type == 3)
+        {
             receive(num,amount);
         }
-        else if(type == 4){
+        else if(type == 4)
+        {
             returns(num, amount);
         }
-        else if(type == 5){
+        else if(type == 5)
+        {
             shipCust(num, amount);
         }
-        else if(type == 6){
+        else if(type == 6)
+        {
             orderCust(num, amount);
         }
-        else if(type == 7){
+        else if(type == 7)
+        {
             returnCust(num, amount);
         }
     }
     
+    //the method below prints all items and their corresponding information to a new text file
     public void PrintToFile() throws IOException
     {
         PrintWriter write = new PrintWriter("NewInventory.txt");
-        
         int i = 0;
-        while(i < inv.size()){
+
+        while(i < inv.size())
+        {
             write.print(inv.get(i));
-            if(i <= inv.size()){
+            if(i <= inv.size())
+            {
                 write.println();
             }
             i++;
         }
+
         System.out.println("File has finished writing!");
         write.close();
     }
-    // End of Day processing
-   public void endOfDay()
-   {
-       printInvReport();
-       processAuto();
-   }
-   
-   private void printInvReport()
-   {
-       System.out.printf("%-8s %-10s %-10s %-10s %-10s %-9s %-11s \n", "Item", "Item", " ",
-                            " ", " ", "Unit", "Item");
-                           
+
+    //End of Day processing
+    public void endOfDay()
+    {
+        printInvReport();
+        processAuto();
+    }
+    
+    //the method below prints out an inventory report
+    private void printInvReport()
+    {
+        System.out.printf("%-8s %-10s %-10s %-10s %-10s %-9s %-11s \n", "Item", "Item", " ",
+            " ", " ", "Unit", "Item");
+
         System.out.printf("%-8s %-10s %-10s %-10s %-10s %-9s %-11s \n\n","Number", "Name", "On Hand",
-                           "Committed", "On Order", "Price", "Value");
-        
+            "Committed", "On Order", "Price", "Value");
+
         for (int i = 0; i < inv.size(); i++)
-         {
+        {
             System.out.printf ("%-8s %-10s %-10d %-10d %-10d $ %-7.2f $ %-10.2f \n", 
-                    inv.get(i).getItemNo(), inv.get(i).getItemName(), inv.get(i).getOnHand(), 
-                    inv.get(i).getCommitted(), inv.get(i).getOnOrder(), inv.get(i).getUnitPrice(),
-                    inv.get(i).getUnitPrice() * inv.get(i).getOnHand() + inv.get(i).getCommitted());           
-         }   
-   }
-   
-   private void processAuto()
-   {
-       boolean autoOrd;
-       for (int i = 0; i < inv.size(); i++)
-         {
-             autoOrd = inv.get(i).autoOrder(); 
-             if (autoOrd)
-             {
-                 System.out.println ("Ordered " + inv.get(i).getEconOrderQty() + " of item " + inv.get(i).getItemNo() + "  " + inv.get(i).getItemName());
-                 System.out.println ("on order amount is " + inv.get(i).getOnOrder());
-             }
-             
-         }   
-   }
-   
+                inv.get(i).getItemNo(), inv.get(i).getItemName(), inv.get(i).getOnHand(), 
+                inv.get(i).getCommitted(), inv.get(i).getOnOrder(), inv.get(i).getUnitPrice(),
+                inv.get(i).getUnitPrice() * inv.get(i).getOnHand() + inv.get(i).getCommitted());           
+        }   
+    }
+    
+    //the method below automatically orders items
+    private void processAuto()
+    {
+        boolean autoOrd;
+        for (int i = 0; i < inv.size(); i++)
+        {
+            autoOrd = inv.get(i).autoOrder(); 
+            if (autoOrd)
+            {
+                System.out.println ("Ordered " + inv.get(i).getEconOrderQty() + " of item " + inv.get(i).getItemNo() + "  " + inv.get(i).getItemName());
+                System.out.println ("on order amount is " + inv.get(i).getOnOrder());
+            }
+
+        }   
+    }
+
 }
