@@ -271,7 +271,7 @@ public class Warehouse
         int amount = 0;
 
         while(fileInput.hasNext()){
-            num = fileInput.nextLine();
+            num = fileInput.next();
             type = fileInput.nextInt();
             amount = fileInput.nextInt();
             check = validateNum(num);
