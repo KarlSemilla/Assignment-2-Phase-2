@@ -274,7 +274,10 @@ public class Warehouse
             num = fileInput.nextLine();
             type = fileInput.nextLine();
             amount = fileInput.nextLine();
-            if (num){}
+            check = validateNum(num);
+            if (check != null){
+                
+            }
         }
         
     }
