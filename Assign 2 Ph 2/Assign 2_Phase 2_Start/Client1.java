@@ -82,6 +82,7 @@ public class Client1
                 break;
 
                 case 4:
+                ware.endOfDay();
                 ware.PrintToFile();
                 break;
 
