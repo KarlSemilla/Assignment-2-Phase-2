@@ -21,7 +21,7 @@ public class Warehouse
     public int loadData()throws IOException
     {
         Scanner fileInput = new Scanner(new File("Inventory.txt"));
-
+        
         while(fileInput.hasNextLine()){
             inv.add(new Item(fileInput.next(), 
                     fileInput.next(), 
@@ -277,11 +277,13 @@ public class Warehouse
             check = validateNum(num);
             if (check != null){
                 System.out.println("Item is valid. Processing will now occur.");
+                fileInput.close();
                 ProcessSelect(num, type, amount);
             }
             else
                 System.out.println("" + num + " is not a valid item.");
         } 
+        fileInput.close();
     }
 
     public void ProcessSelect(String num, int type, int amount)
@@ -304,6 +306,19 @@ public class Warehouse
         else if(type == 7){
             returnCust(num, amount);
         }
+    }
+    
+    public void PrintToFile() throws IOException
+    {
+        PrintWriter write = new PrintWriter("NewInventory.txt");
+        
+        int i = 0;
+        while(i < inv.size()){
+            write.print(inv.get(i));
+            write.println();
+            i++;
+        }
+        write.close();
     }
     // End of Day processing
     //    public void endOfDay()
