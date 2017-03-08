@@ -25,7 +25,6 @@ public class Client1
         // complete the main by adding the necessary variables and statements
         Scanner in = new Scanner(System.in);
         int choice = 0;
-        int invChoice = 0;
         int count = 0;
         String num = "";
         Warehouse ware = new Warehouse();
@@ -45,7 +44,7 @@ public class Client1
                 break;
 
                 case 2:
-
+                invMenuCall();
                 break;
 
                 case 3:
@@ -55,6 +54,9 @@ public class Client1
                 case 4:
 
                 break;
+
+                default:
+                System.out.println("Enter a valid choice");
             }
         }
         System.out.println ("Thank you for using the Inventory Processing System");
@@ -79,7 +81,6 @@ public class Client1
      */
     public static void invMenu()
     {
-
         System.out.println("\nINVENTORY PROCESSING MENU:");
         System.out.println("1) Adding an Item to the Warehoue");
         System.out.println("2) Removing an Item from the Warehouse");
@@ -88,14 +89,37 @@ public class Client1
         System.out.println("4) Exit");
     } 
 
-    public void invMenuCall()
+    public static void invMenuCall()
     {
-        while (invChoice)
+        Warehouse ware = new Warehouse();
+        int invChoice = 0;
+        Scanner in = new Scanner(System.in);
+        String num = "";
+        
+        while (invChoice != 4)
         {
-
+            invMenu();
+            System.out.println("Please enter your coice or 4 to exit");
+            invChoice = in.nextInt();
+            switch (invChoice)
+            {
+                case 1:
+                System.out.println("Enter item number");
+                num = in.next();
+                ware.addItem(num);
+                break;
+                
+                case 2:
+                
+                break;
+                
+                case 3:
+                
+                break;
+                
+                default:
+                System.out.println("Enter a valid choice");
+            }
         }
-        System.out.println("Enter item number");
-        num = in.next();
-        ware.addItem(num);
     }
 }
