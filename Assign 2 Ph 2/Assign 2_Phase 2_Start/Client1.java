@@ -26,6 +26,7 @@ public class Client1
         Scanner in = new Scanner(System.in);
         int choice = 0;
         int count = 0;
+        int invChoice = 0;
         String num = "";
         Warehouse ware = new Warehouse();
         ware.loadData();
@@ -44,7 +45,32 @@ public class Client1
                 break;
 
                 case 2:
-                invMenuCall();
+                //invMenuCall();
+                while (invChoice != 4)
+                {
+                    invMenu();
+                    System.out.println("Please enter your coice or 4 to exit");
+                    invChoice = in.nextInt();
+                    switch (invChoice)
+                    {
+                        case 1:
+                        System.out.println("Enter item number");
+                        num = in.next();
+                        ware.addItem(num);
+                        break;
+
+                        case 2:
+
+                        break;
+
+                        case 3:
+
+                        break;
+
+                        default:
+                        System.out.println("Enter a valid choice");
+                    }
+                }
                 break;
 
                 case 3:
@@ -89,37 +115,37 @@ public class Client1
         System.out.println("4) Exit");
     } 
 
-    public static void invMenuCall()
-    {
-        Warehouse ware = new Warehouse();
-        int invChoice = 0;
-        Scanner in = new Scanner(System.in);
-        String num = "";
-        
-        while (invChoice != 4)
-        {
-            invMenu();
-            System.out.println("Please enter your coice or 4 to exit");
-            invChoice = in.nextInt();
-            switch (invChoice)
-            {
-                case 1:
-                System.out.println("Enter item number");
-                num = in.next();
-                ware.addItem(num);
-                break;
-                
-                case 2:
-                
-                break;
-                
-                case 3:
-                
-                break;
-                
-                default:
-                System.out.println("Enter a valid choice");
-            }
-        }
-    }
+    //     public static void invMenuCall()
+    //     {
+    //         Warehouse ware = new Warehouse();
+    //         int invChoice = 0;
+    //         Scanner in = new Scanner(System.in);
+    //         String num = "";
+    // 
+    //         while (invChoice != 4)
+    //         {
+    //             invMenu();
+    //             System.out.println("Please enter your coice or 4 to exit");
+    //             invChoice = in.nextInt();
+    //             switch (invChoice)
+    //             {
+    //                 case 1:
+    //                 System.out.println("Enter item number");
+    //                 num = in.next();
+    //                 ware.addItem(num);
+    //                 break;
+    // 
+    //                 case 2:
+    // 
+    //                 break;
+    // 
+    //                 case 3:
+    // 
+    //                 break;
+    // 
+    //                 default:
+    //                 System.out.println("Enter a valid choice");
+    //             }
+    //         }
+    //     }
 }
