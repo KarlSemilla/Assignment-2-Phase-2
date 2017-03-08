@@ -66,7 +66,9 @@ public class Client1
                         break;
 
                         case 3:
-
+                        System.out.println("Enter item number: ");
+                        num = in.next();
+                        ware.ChangeItemPrice(num);
                         break;
 
                         default:
