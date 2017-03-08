@@ -24,51 +24,53 @@ public class Client1
     {
         // complete the main by adding the necessary variables and statements
         Scanner in = new Scanner(System.in);
-        int choice = 0;
+        String choice = "";
         int count = 0;
-        int invChoice = 0;
+        String invChoice = "";
         String num = "";
         Warehouse ware = new Warehouse();
         ware.loadData();
 
-        while (choice != 5)
+        while (!choice.equals("5"))
         {
             mainMenu();
             System.out.println("Please enter your choice or 5 to exit");
-            choice = in.nextInt();
+            choice = in.next();
             switch(choice) 
             {
-                case 1:
+                case "1":
                 System.out.println("Enter item number");
                 num = in.next();
                 ware.invQuery(num);
                 break;
 
-                case 2:
-                //invMenuCall();
-                while (invChoice != 4)
+                case "2":
+                while (!invChoice.equals("4"))
                 {
                     invMenu();
                     System.out.println("Please enter your choice or 4 to exit");
-                    invChoice = in.nextInt();
+                    invChoice = in.next();
                     switch (invChoice)
                     {
-                        case 1:
+                        case "1":
                         System.out.println("Enter item number");
                         num = in.next();
                         ware.addItem(num);
                         break;
 
-                        case 2:
+                        case "2":
                         System.out.println("Enter item number for item to be removed");
                         num = in.next();
                         ware.removeItem(num);
                         break;
 
-                        case 3:
+                        case "3":
                         System.out.println("Enter item number: ");
                         num = in.next();
                         ware.ChangeItemPrice(num);
+                        break;
+                        
+                        case "4":
                         break;
 
                         default:
@@ -77,15 +79,18 @@ public class Client1
                 }
                 break;
 
-                case 3:
+                case "3":
                 ware.TransacFile();
                 break;
 
-                case 4:
+                case "4":
                 ware.endOfDay();
                 ware.PrintToFile();
                 break;
-
+                
+                case "5":
+                break;
+                
                 default:
                 System.out.println("Enter a valid choice");
             }
