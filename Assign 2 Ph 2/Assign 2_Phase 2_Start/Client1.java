@@ -82,7 +82,7 @@ public class Client1
                 break;
 
                 case 4:
-
+                ware.PrintToFile();
                 break;
 
                 default:
