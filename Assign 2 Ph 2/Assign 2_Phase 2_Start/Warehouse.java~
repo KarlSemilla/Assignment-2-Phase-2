@@ -35,15 +35,14 @@ public class Warehouse
         //stock[4] = new Item("E55555", "Sockets", 200, 300, 150, 1.00, 200, 400);
         while(fileInput.hasNextLine()){
             inv.add(new Item(fileInput.next(), 
-                             fileInput.next(), 
-                             fileInput.nextInt(),
-                             fileInput.nextInt(),
-                             fileInput.nextInt(),
-                             fileInput.nextDouble(),
-                             fileInput.nextInt(),
-                             fileInput.nextInt()));
-                 
-                    
+                    fileInput.next(), 
+                    fileInput.nextInt(),
+                    fileInput.nextInt(),
+                    fileInput.nextInt(),
+                    fileInput.nextDouble(),
+                    fileInput.nextInt(),
+                    fileInput.nextInt()));
+
                     
         }
         fileInput.close();
@@ -196,17 +195,36 @@ public class Warehouse
     {
         int i = 0;
         Item check = null;
-        while(i < inv.size()){
-            check = validateNum(num);
-            if(inv.get(i).equals(num)){
-                System.out.println("The item cannot be created. Item already exists.");
-            }
-            else{
-                System.out.println("The item was not found. The item will be created.");
-                System.out.println("");
-            }
-            i++;
+
+        check = validateNum(num);
+        
+        if(check != null)
+            System.out.println("The item cannot be created. Item already exists.");            
+        else
+        {
+            System.out.println("The item was not found. The item will be created.");
+            scanInfo();
         }
+
+    }
+    
+    public Item scanInfo()
+    {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Enter item number: ");
+        String itemNum = scan.nextLine();
+        System.out.println("Enter item name: ");
+        String itemName = scan.nextLine();
+        System.out.println("Enter amount in stock: ");
+        int stock = scan.nextInt();
+        System.out.println("Enter unit price of the item: ");
+        double price = scan.nextDouble();
+        System.out.println("Enter the reorder amount: ");
+        int reorder = scan.nextInt();
+        System.out.println("Enter the econ order quantity: ");
+        int eoq = scan.nextInt();
+        inv.add(new Item(itemNum,itemName,stock,price,reorder,eoq));
+        return(new Item(itemNum,itemName,stock,price,reorder,eoq));
     }
 
     // End of Day processing
