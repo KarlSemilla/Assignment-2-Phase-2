@@ -9,30 +9,19 @@ import java.io.*;
 public class Warehouse
 {
     // instance variables (fields)  
-    private final static int MAX = 60;
     private ArrayList<Item> inv = new ArrayList<Item>();
-    private int numItems;
 
     // the constructor
     public Warehouse()
     {
-        //stock = new Item[MAX];
-
-        //numItems = loadData();
-
+        
     }
 
-    /**
-     * This is the hardcoded data to be loaded into the instance variables.  
-     */
+    // the method below loads the data from a text file
     public int loadData()throws IOException
     {
         Scanner fileInput = new Scanner(new File("Inventory.txt"));
-        //stock[0] = new Item("A11111", "Widgets", 30, 50, 70, 2.50, 20, 50);
-        //stock[1] = new Item("B22222", "Gadgets", 10, 20, 0, 4.00, 50, 100);
-        //stock[2] = new Item("C33333", "Trinkets", 100, 20, 35, 3.75, 80, 150);
-        //stock[3] = new Item("D44444", "Pickets", 0, 100, 20, 8.35, 25, 75);
-        //stock[4] = new Item("E55555", "Sockets", 200, 300, 150, 1.00, 200, 400);
+        
         while(fileInput.hasNextLine()){
             inv.add(new Item(fileInput.next(), 
                     fileInput.next(), 
@@ -43,7 +32,6 @@ public class Warehouse
                     fileInput.nextInt(),
                     fileInput.nextInt()));
 
-                    
         }
         fileInput.close();
         int number = 5;
@@ -52,7 +40,7 @@ public class Warehouse
     }
 
     // processing methods
-    // validate item number and if valid, returns the found item.  Will be used only by this class and hence declared as private
+    // validates item number and if valid, returns the found item.  Will be used only by this class and hence declared as private
     public Item validateNum(String num)
     {        
         Item foundItem = null;
@@ -190,14 +178,15 @@ public class Warehouse
         else
             System.out.println ("The item number " + num + " does not exist."); 
     }
-
+    
+    //the method below allows the user to add a new item to the invetory
     public void addItem(String num)
     {
         int i = 0;
         Item check = null;
 
         check = validateNum(num);
-        
+
         if(check != null)
             System.out.println("The item cannot be created. Item already exists.");            
         else
@@ -207,7 +196,8 @@ public class Warehouse
         }
 
     }
-    
+
+    //the method below is utilised by the method above to request and set values for a new item
     public Item scanInfo()
     {
         Scanner scan = new Scanner(System.in);
@@ -225,6 +215,35 @@ public class Warehouse
         int eoq = scan.nextInt();
         inv.add(new Item(itemNum,itemName,stock,price,reorder,eoq));
         return(new Item(itemNum,itemName,stock,price,reorder,eoq));
+    }
+
+    //the method below removes an item from the inventory if it matches the item number the user entered
+    public void removeItem(String num)
+    {
+        Item check = null;
+
+        check = validateNum(num);
+        if(check != null){
+            inv.remove(check);
+        }
+        else
+            System.out.println("Item could not be found.");
+    }
+
+    //the method below modifies the price of an existing item
+    public void ChangeItemPrice(String num)
+    {
+        Item check = null;
+        check = validateNum(num);
+
+        if (check != null)
+        {
+            
+        }
+        else 
+        {
+            System.out.println("Item could not be found");
+        }
     }
 
     // End of Day processing
