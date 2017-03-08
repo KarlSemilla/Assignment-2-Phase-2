@@ -43,7 +43,6 @@ public class Warehouse
                     fileInput.nextInt(),
                     fileInput.nextInt()));
 
-                    
         }
         fileInput.close();
         int number = 5;
@@ -197,7 +196,7 @@ public class Warehouse
         Item check = null;
 
         check = validateNum(num);
-        
+
         if(check != null)
             System.out.println("The item cannot be created. Item already exists.");            
         else
@@ -207,7 +206,7 @@ public class Warehouse
         }
 
     }
-    
+
     public Item scanInfo()
     {
         Scanner scan = new Scanner(System.in);
@@ -226,7 +225,7 @@ public class Warehouse
         inv.add(new Item(itemNum,itemName,stock,price,reorder,eoq));
         return(new Item(itemNum,itemName,stock,price,reorder,eoq));
     }
-    
+
     public void removeItem(String num)
     {
         Item check = null;
@@ -243,7 +242,17 @@ public class Warehouse
     {
         Item check = null;
         check = validateNum(num);
+
+        if (check != null)
+        {
+            
+        }
+        else 
+        {
+            System.out.println("Item could not be found");
+        }
     }
+
     // End of Day processing
     //    public void endOfDay()
     //    {

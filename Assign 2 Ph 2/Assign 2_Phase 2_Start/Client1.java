@@ -60,7 +60,9 @@ public class Client1
                         break;
 
                         case 2:
-
+                        System.out.println("Enter item number for item to be removed");
+                        num = in.next();
+                        ware.removeItem(num);
                         break;
 
                         case 3:
