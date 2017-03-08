@@ -23,7 +23,11 @@ package.showExtends=true
 package.showUses=true
 project.charset=windows-1252
 target1.editor.height=1048
+<<<<<<< HEAD
 target1.editor.width=1932
+=======
+target1.editor.width=1740
+>>>>>>> refs/remotes/origin/Version-1
 target1.editor.x=-9
 target1.editor.y=-9
 target1.height=50
@@ -48,10 +52,17 @@ target2.typeParameters=
 target2.width=80
 target2.x=40
 target2.y=250
+<<<<<<< HEAD
 target3.editor.height=1048
 target3.editor.width=1932
 target3.editor.x=-9
 target3.editor.y=-9
+=======
+target3.editor.height=1042
+target3.editor.width=778
+target3.editor.x=905
+target3.editor.y=17
+>>>>>>> refs/remotes/origin/Version-1
 target3.height=50
 target3.name=Warehouse
 target3.naviview.expanded=false
@@ -63,8 +74,8 @@ target3.x=180
 target3.y=150
 target4.editor.height=1038
 target4.editor.width=976
-target4.editor.x=952
-target4.editor.y=0
+target4.editor.x=648
+target4.editor.y=47
 target4.height=50
 target4.name=Interface
 target4.naviview.expanded=false

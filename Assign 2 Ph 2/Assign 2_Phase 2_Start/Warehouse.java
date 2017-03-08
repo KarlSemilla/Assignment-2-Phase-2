@@ -230,20 +230,36 @@ public class Warehouse
             System.out.println("Item could not be found.");
     }
 
-    //the method below modifies the price of an existing item
     public void ChangeItemPrice(String num)
     {
+        Scanner scan = new Scanner(System.in);
         Item check = null;
+        double newPrice = 0.0;
+        int ref = 0;
         check = validateNum(num);
-
-        if (check != null)
-        {
-            
+        if(check != null){
+            System.out.println("Number is valid. Please enter the amount to set " + num + "'s  price to: ");
+            newPrice = scan.nextDouble();
+            ref = ItemPosition(num);
+            inv.set(ref,check).setUnitPrice(newPrice);
         }
-        else 
+        else
+            System.out.println("Item is not valid.");
+    }
+    
+    public int ItemPosition(String num)
+    {
+        int i = 0;
+        int y = 0;
+        while(i < inv.size())
         {
-            System.out.println("Item could not be found");
+            if (inv.get(i).getItemNo().equals(num))
+            {
+                y = i;
+            }  
+            i++;
         }
+        return y;
     }
 
     // End of Day processing
