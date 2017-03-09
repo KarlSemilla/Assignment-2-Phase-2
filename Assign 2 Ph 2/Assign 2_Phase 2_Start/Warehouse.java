@@ -193,7 +193,6 @@ public class Warehouse
     //the method below allows the user to add a new item to the invetory
     public void addItem(String num)
     {
-        int i = 0;
         Item check = null;
         check = validateNum(num);
 
@@ -267,18 +266,18 @@ public class Warehouse
     public int ItemPosition(String num)
     {
         int i = 0;
-        int y = 0;
+        int j = 0;
 
         while(i < inv.size())
         {
             if (inv.get(i).getItemNo().equals(num))
             {
-                y = i;
+                j = i;
             }  
             i++;
         }
 
-        return y;
+        return j;
     }
 
     //the method below reads a text file with transactions
