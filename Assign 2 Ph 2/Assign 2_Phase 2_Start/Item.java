@@ -231,7 +231,7 @@ public class Item
     {
         double invVal;
 
-        invVal = unitPrice *(onHand + committed);
+        invVal = unitPrice * (onHand + committed);
 
         return invVal;
     }

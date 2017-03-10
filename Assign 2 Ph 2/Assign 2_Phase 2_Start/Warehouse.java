@@ -284,7 +284,7 @@ public class Warehouse
     //the method below reads a text file with transactions
     public void TransacFile() throws IOException
     {
-        Scanner fileInput = new Scanner(new File("transaction.txt"));
+        Scanner fileInput = new Scanner(new File("TestTransactions.txt"));
         Item check = null;
         String num = "";
         int type = 0;
@@ -300,7 +300,6 @@ public class Warehouse
             if (check != null)
             {
                 System.out.println("Item is valid. Processing will now occur.");
-                fileInput.close();
                 ProcessSelect(num, type, amount);
             }
             else

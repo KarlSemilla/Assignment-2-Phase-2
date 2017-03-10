@@ -68,7 +68,7 @@ public class Interface
                 inStock.returnCust(number, amount);
                 break;
                 case 8: 
-                //inStock.endOfDay();
+                inStock.endOfDay();
                 break;
                 case 9:
                 System.out.println ("Thank you for using the Inventory Processing System");
