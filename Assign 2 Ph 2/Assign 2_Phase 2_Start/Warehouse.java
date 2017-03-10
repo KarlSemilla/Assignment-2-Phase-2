@@ -381,7 +381,7 @@ public class Warehouse
             System.out.printf ("%-8s %-10s %-10d %-10d %-10d $ %-7.2f $ %-10.2f \n", 
                 inv.get(i).getItemNo(), inv.get(i).getItemName(), inv.get(i).getOnHand(), 
                 inv.get(i).getCommitted(), inv.get(i).getOnOrder(), inv.get(i).getUnitPrice(),
-                inv.get(i).getUnitPrice() * inv.get(i).getOnHand() + inv.get(i).getCommitted());           
+                inv.get(i).calcInvValue());           
         }   
     }
     
